@@ -18,17 +18,19 @@ function SportFilter({ sportName }) {
   ];
   const handleFilter = (sport) => {
     setActive(sport.id);
-    navigate(`/section/${sport.name.toLowerCase()}`);
+    navigate(`/sport/${sport.name.toLowerCase()}`);
   };
   useEffect(() => {
     console.log(sportName);
     if (sportName) {
       const sportData = sportList.find((item) => item.name.toLowerCase() === sportName.toLowerCase());
       setActive(sportData.id);
+    } else {
+      setActive();
     }
   }, [sportName]);
   return (
-    <nav className="flex justify-start bg-sky-700 text-blue-400 overflow-x-auto">
+    <nav className="flex justify-start bg-blue-950 text-blue-200 overflow-x-auto">
       <ul className="flex justify-start gap-1">
         {sportList.map((sport) => {
           return (

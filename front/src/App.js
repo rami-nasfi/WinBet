@@ -4,7 +4,8 @@ import Home from "./components/pages/home/Home";
 import "./fontAwesome"; // Import the fontAwesome configuration
 import Header from "./components/navigations/header/Header";
 import MainNav from "./components/navigations/main nav/MainNav";
-import Section from "./components/pages/home/Section";
+import Sport from "./components/pages/home/Sport";
+import Game from "./components/pages/home/Game";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/section/:sportName" element={<Section />} />
+          <Route path="/sport/:sportName?" element={<Sport />} />
+          <Route path="/sport/:sportName/:id" element={<Game />} />
         </Routes>
       </Router>
     </div>

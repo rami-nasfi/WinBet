@@ -1,40 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
-
+import useFetch from "../../hooks/useFetch";
 function TopItems({ itemData }) {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("https://v3.afootball.api-sports.io/odds?date=2024-09-02", {
-          headers: {
-            "x-rapidapi-key": process.env.REACT_APP_X_RAPIDAPI_KEY,
-            "x-rapidapi-host": "v3.football.api-sports.io",
-          },
-        });
-        console.log(res.data.response);
-
-        // Check if res.data.response is an array
-        if (Array.isArray(res.data.response)) {
-          setData(res.data.response);
-        } else {
-          console.error("Response data is not an array:", res.data.response);
-        }
-      } catch (error) {
-        setError(error);
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { data, loading, error } = useFetch("https://raw.githubusercontent.com/rami-nasfi/WinBet/main/front/src/bets.json");
 
   // if (loading) return <div>Loading...</div>;
   // if (error) return <div>Error: {error.message}</div>;
@@ -51,12 +20,6 @@ function TopItems({ itemData }) {
         </span>
       </nav>
       <div className="flex flex-row justify-stretch p-2 overflow-x-auto gap-2">
-        <div className="p-2 border rounded text-left flex flex-col gap-1  flex-grow-0 flex-shrink-0 flex-basis-auto w-[95%] sm:w-[50%] md:w-[33.33%]">
-          <Item item={{}} />
-        </div>
-        <div className="p-2 border rounded text-left flex flex-col gap-1  flex-grow-0 flex-shrink-0 flex-basis-auto w-[95%] sm:w-[50%] md:w-[33.33%]">
-          <Item item={{}} />
-        </div>
         {data.map((item) => (
           <div className="p-2 border rounded text-left flex flex-col gap-1  flex-grow-0 flex-shrink-0 flex-basis-auto w-[95%] sm:w-[50%] md:w-[33.33%]">
             <Item item={item} />
