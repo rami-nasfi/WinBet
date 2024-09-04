@@ -3,7 +3,10 @@ import Item from "../Item/Item";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useFetch from "../../hooks/useFetch";
 function TopItems({ itemData }) {
-  const { data, loading, error } = useFetch("https://raw.githubusercontent.com/rami-nasfi/WinBet/main/front/src/bets.json");
+  const { data, loading, error } = useFetch(
+    "https://raw.githubusercontent.com/rami-nasfi/WinBet/main/front/src/bets.json",
+    "https://v3.football.api-sports.io/fixtures?date=2024-09-04"
+  );
 
   // if (loading) return <div>Loading...</div>;
   // if (error) return <div>Error: {error.message}</div>;
