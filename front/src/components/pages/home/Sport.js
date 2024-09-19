@@ -6,7 +6,7 @@ import useFetch from "../../../hooks/useFetch";
 
 function Sport() {
   const { sportName } = useParams(); // Get the sportName from the URL
-  const { data, loading, error } = useFetch("https://v3.football.api-sports.io/fixtures?date=2024-09-04");
+  const { data, loading, error } = useFetch("../../Game.json", "");
   console.log("test Section file", data);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;

@@ -5,7 +5,7 @@ import useFetch from "../../hooks/useFetch";
 function Item({ item }) {
   const [favListe, setFavListe] = useState([]);
   const [bookmakers, setBookmakers] = useState([]);
-  const { data, loading, error } = useFetch("https://raw.githubusercontent.com/rami-nasfi/WinBet/main/front/src/Game.json");
+  const { data, loading, error } = useFetch(`https://betsapi2.p.rapidapi.com/v3/bet365/prematch?FI=${item}`);
   console.log("heeere", data);
   const handleFav = (id) => {
     setFavListe((prevFavListe) => (prevFavListe.includes(id) ? prevFavListe.filter((item) => item !== id) : [...prevFavListe, id]));

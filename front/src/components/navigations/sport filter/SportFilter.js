@@ -6,12 +6,12 @@ function SportFilter({ sportName }) {
   const navigate = useNavigate();
   const [active, setActive] = useState(1);
   const sportList = [
-    { id: 1, name: "All Sports", icon: "fa-border-all", total: 432 },
-    { id: 2, name: "Favorites", icon: "fa-star", total: 43 },
-    { id: 3, name: "Football", icon: "fa-futbol", total: 12 },
-    { id: 4, name: "Tennis", icon: "fa-table-tennis-paddle-ball", total: 55 },
-    { id: 5, name: "Handball", icon: "fa-baseball", total: 25 },
-    { id: 6, name: "Handball", icon: "fa-baseball", total: 25 },
+    { id: 0, name: "All Sports", icon: "fa-border-all", total: 432 },
+    { id: 0, name: "Favorites", icon: "fa-star", total: 43 },
+    { id: 1, name: "Football", icon: "fa-futbol", total: 12 },
+    { id: 13, name: "Tennis", icon: "fa-table-tennis-paddle-ball", total: 55 },
+    { id: 78, name: "Handball", icon: "fa-baseball", total: 25 },
+    { id: 18, name: "Basketball", icon: "fa-baseball", total: 25 },
     { id: 7, name: "Handball", icon: "fa-baseball", total: 25 },
     { id: 8, name: "Handball", icon: "fa-baseball", total: 25 },
     { id: 9, name: "Handball", icon: "fa-baseball", total: 25 },
